@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmação de Compra</title>
+    <!-- Inclua quaisquer links CSS ou scripts necessários aqui -->
+</head>
+<body>
+    <h1>Confirmação de Compra</h1>
+    
+    <p>Sua compra foi realizada com sucesso!</p>
+    
+    <!-- Exiba detalhes da compra, se desejar -->
+    <p>Cliente: <span th:text="${compra.cliente.nome}"></span></p>
+    <p>Passagem: <span th:text="${compra.passagem.saindo + ' - ' + compra.passagem.indo}"></span></p>
+    <p>Data da Compra: <span th:text="${#dates.format(compra.dataCompra, 'dd/MM/yyyy HH:mm')}"></span></p>
+    <p>Valor Total: R$ <span th:text="${compra.valorTotal}"></span></p>
+    
+    <!-- Inclua quaisquer outros elementos necessários na página -->
+</body>
+</html>

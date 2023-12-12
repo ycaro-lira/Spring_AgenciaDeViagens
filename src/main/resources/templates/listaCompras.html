@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="/css/estilos.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Lista de Compras</title>
+     <style>
+        body {
+            background-image: url('https://i.im.ge/2023/10/19/tFpJqS.spencer-davis-0QcSnCM0aMc-unsplash.jpg');
+            background-size:cover;
+            background-attachment: fixed;
+        }
+        
+         .navbar-brand img {
+            max-height: 80px; /* Ajusta a altura do logo conforme necessário */
+        }
+ 
+    </style>
+  <body>
+</head>
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+        <a class="navbar-brand" href="/home.html"><img src="https://i.im.ge/2023/11/16/Aa2bX8.logoagencia.jpg" alt="Logo"></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto"> 
+                <li class="nav-item">
+                    <a class="nav-link" href="/passagens/registrar">Cadastrar passagem</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/passagens/listar">Lista de passagens</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/clientes">Lista de clientes</a>
+                </li>
+                 <li class="nav-item">
+                    <a class="nav-link" href="/compras">Lista de compras</a>
+                </li>
+              </ul>
+        </div>
+    </div>
+</nav>
+<body class="container-fluid mt-5 mb-5">
+ <div class="card p-4">
+	<div class="card-header bg-primary text-white">
+            <h1 class="card-title">Lista de Compras</h1>
+        </div>
+        <div class="card-body">
+            <table class="table table-bordered table-hover">
+                <thead class="table-dark">
+                    <tr>
+                        <th>ID</th>
+                        <th>Cliente</th>
+                        <th>Passagem</th>
+                        <th>Valor Total</th>
+                        <th>Data da Compra</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                
+                    <!-- Loop through the list of compras and display each row -->
+                    <tr th:each="compra : ${compras}">
+                        <td th:text="${compra.id}"></td>
+                        <td th:text="${compra.cliente?.nome}"></td>
+                        <td th:if="${compra.passagem != null}" th:text="${compra.passagem.saindo + ' - ' + compra.passagem.indo}">N/A</td>
+                        <td th:unless="${compra.passagem != null}">N/A</td>
+                        <td th:text="${compra.valorTotal}"></td>
+                        <td th:text="${#temporals.format(compra.dataCompra, 'dd/MM/yyyy HH:mm')}"></td>
+                        <td>
+                            <a th:href="@{'/compras/' + ${compra.id}}" class="btn btn-info btn-sm" title="Detalhes">
+                                <i class="bi bi-info-circle"></i>
+                            </a>
+   
+
+                        <a th:href="@{'/compras/editar/' + ${compra.id}}" class="btn btn-warning btn-sm" title="Editar">
+    <i class="bi bi-pencil"></i>
+</a>
+
+                            <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal"
+                                th:data-bs-target="'#deleteModal' + ${compra.id}" title="Deletar">
+                                <i class="bi bi-trash"></i>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Delete Modal -->
+    <div th:each="compra : ${compras}" th:id="'deleteModal' + ${compra.id}" class="modal fade" tabindex="-1"
+        role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header bg-danger text-white">
+                    <h5 class="modal-title" id="deleteModalLabel">Confirmação de Exclusão</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Tem certeza de que deseja excluir esta compra?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <a th:href="@{'/compras/deletar/' + ${compra.id}}" class="btn btn-danger">Confirmar Exclusão</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

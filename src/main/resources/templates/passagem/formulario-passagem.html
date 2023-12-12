@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Registro de Passagens</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    
+     <style>
+        body {
+            background-image: url('https://i.im.ge/2023/10/19/tFpJqS.spencer-davis-0QcSnCM0aMc-unsplash.jpg');
+            background-size:cover;
+            background-attachment: fixed;
+        }
+        
+         .navbar-brand img {
+            max-height: 80px; /* Ajusta a altura do logo conforme necessário */
+        }
+ 
+    </style>
+</head>
+<body class="bg-light">
+	
+	
+	 <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+        <a class="navbar-brand" href="/home.html"><img src="https://i.im.ge/2023/11/16/Aa2bX8.logoagencia.jpg" alt="Logo"></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto"> <!-- Adicionado ml-auto aqui -->
+                <li class="nav-item">
+                    <a class="nav-link" href="/passagens/registrar">Cadastrar passagem</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/passagens/listar">Lista de passagens</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/clientes">Lista de clientes</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/compras">Lista de compras</a>
+                </li>
+                 </ul>
+        </div>
+    </div>
+</nav>
+	
+	
+    <div class="container mt-5">
+        <div class="card mx-auto" style="max-width: 400px; border-radius: 10px; box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);">
+            <div class="card-body">
+                <h1 class="card-title text-center text-primary mb-4">Formulário de Registro de Passagens</h1>
+
+                <form method="post" action="/passagens/registrar">
+                    <div class="form-group">
+                        <label for="saindo">Local de Saída:</label>
+                        <select id="saindo" name="saindo" class="form-control" required>
+                            <option value="" selected>Escolha seu local de saída...</option>
+                            
+            <option value="saopaulo">São Paulo</option>
+            <option value="riodejaneiro">Rio de Janeiro</option>
+            <option value="belohorizonte">Belo Horizonte</option>
+             <option value="paris">Paris</option>
+            <option value="fernandodeNoronha">Fernando de Noronha</option>
+            <option value="salvador">Salvador</option>
+            <option value="fortaleza">Fortaleza</option>
+            <option value="manaus">Manaus</option>
+            <option value="recife">Recife</option>
+            <option value="curitiba">Curitiba</option>
+            <option value="portoalegre">Porto Alegre</option>
+            <option value="brasilia">Brasília</option>
+            <option value="natal">Natal</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="indo">Destino:</label>
+                        <select id="indo" name="indo" class="form-control" required>
+                            <option value="" selected>Escolha seu destino...</option>
+            <option value="paris">Paris</option>
+            <option value="fernandodeNoronha">Fernando de Noronha</option>
+            <option value="rio">Rio de Janeiro</option>
+            <option value="saopaulo">São Paulo</option>
+            <option value="belohorizonte">Belo Horizonte</option>
+            <option value="salvador">Salvador</option>
+            <option value="fortaleza">Fortaleza</option>
+            <option value="manaus">Manaus</option>
+            <option value="recife">Recife</option>
+            <option value="curitiba">Curitiba</option>
+            <option value="portoalegre">Porto Alegre</option>
+            <option value="brasilia">Brasília</option>
+            <option value="natal">Natal</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="valor">Valor:</label>
+                        <input type="text" id="valor" name="valor" class="form-control" required>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary btn-block">Registrar Passagem</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+ body {
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            max-width: 600px;
+            padding-top: 20px;
+        }
+
+        .card {
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-header {
+            background-color: #007bff;
+            color: #fff;
+            border-radius: 12px 12px 0 0;
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+
+        h2 {
+            color: #007bff;
+        }
+
+        label {
+            font-weight: bold;
+            color: #495057;
+        }
+
+        .form-control {
+            margin-bottom: 15px;
+        }
+
+        button.btn-primary {
+            background-color: #007bff;
+            border: none;
+        }
+
+        button.btn-primary:hover {
+            background-color: #0056b3;
+        }

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Cadastro de Passagem</title>
+</head>
+<body>
+    <h1>Cadastro de Passagem</h1>
+    <form th:action="@{/passagens/cadastrar}" method="post">
+        <label for="saindo">Origem:</label>
+        <input type="text" id="saindo" name="saindo">
+        <br>
+        <label for="indo">Destino:</label>
+        <input type="text" id="indo" name="indo">
+        <br>
+        <label for="valor">Valor:</label>
+        <input type="text" id="valor" name="valor">
+        <br>
+        <input type="submit" value="Cadastrar Passagem">
+    </form>
+    <a th:href="@{/passagens}" href="#">Voltar para a Lista de Passagens</a>
+</body>
+</html>
