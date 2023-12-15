@@ -37,6 +37,10 @@ Atributos:
 - `dataCompra`: Data e hora da compra.
 - `valorTotal`: Valor total da compra.
 
+
+## Vídeo apresentação do projeto:
+https://www.linkedin.com/feed/update/urn:li:activity:7141440461507907585/
+
 ## Configuração
 
 O projeto utiliza a biblioteca Spring para injeção de dependência e configuração. Certifique-se de configurar corretamente o arquivo `application.properties` para a conexão com o banco de dados.
@@ -47,5 +51,4 @@ spring.datasource.url=jdbc:mysql://localhost:3306/nome_do_banco
 spring.datasource.username=seu_usuario
 spring.datasource.password=sua_senha
 spring.jpa.hibernate.ddl-auto=update
-
 
